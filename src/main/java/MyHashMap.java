@@ -57,10 +57,10 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
     public void resize() {
         if (size / (double)capacity > loadFactor) {
             List[] oldTable = table;
+            size = 0;
             int oldCapacity = capacity;
             capacity *= 2;
             table = new LinkedList[capacity];
-            size = 0;
 
             for (int i = 0; i < oldCapacity; i++) {
                 if (oldTable[i] == null) {
