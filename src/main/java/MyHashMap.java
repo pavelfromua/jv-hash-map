@@ -22,7 +22,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
             currentHash = 0;
         } else {
             currentHash = key.hashCode();
-            index = Math.abs(currentHash % (capacity-1)) + 1;
+            index = Math.abs(currentHash % (capacity - 1)) + 1;
         }
 
         if (table[index] == null) {
@@ -55,11 +55,9 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
     }
 
     public void resize() {
-        if (size/(double)capacity > loadFactor) {
-            int oldCapacity = capacity;
+        if (size / (double)capacity > loadFactor) {
             List[] oldTable = table;
-
-            size = 0;
+            int oldCapacity = capacity;
             capacity *= 2;
             table = new LinkedList[capacity];
 
@@ -75,6 +73,8 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
                     }
                 }
             }
+
+            size = 0;
         }
     }
 
@@ -88,7 +88,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
             currentHash = 0;
         } else {
             currentHash = key.hashCode();
-            index = Math.abs(currentHash % (capacity-1)) + 1;
+            index = Math.abs(currentHash % (capacity - 1)) + 1;
         }
 
         V value = null;
@@ -116,7 +116,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
     }
 }
 
-class BucketData<K, V>{
+class BucketData<K, V> {
     private int hash;
     private K key;
     private V value;
