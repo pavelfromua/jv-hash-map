@@ -60,6 +60,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
             int oldCapacity = capacity;
             capacity *= 2;
             table = new LinkedList[capacity];
+            size = 0;
 
             for (int i = 0; i < oldCapacity; i++) {
                 if (oldTable[i] == null) {
@@ -73,8 +74,6 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
                     }
                 }
             }
-
-            size = 0;
         }
     }
 
